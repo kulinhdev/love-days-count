@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<title>Linh ♥ Thém</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Great+Vibes|Open+Sans:400,700,800" rel="stylesheet" />
+
+	<!-- CSS Stylesheets -->
+	<link rel="stylesheet" href="css/animate.css" />
+	<link rel="stylesheet" href="css/icomoon.css" />
+	<link rel="stylesheet" href="css/bootstrap.css" />
+	<link rel="stylesheet" href="css/style.css" />
+
+	<!-- Modernizr JS -->
+	<script src="js/modernizr-2.6.2.min.js"></script>
+
+	<!-- Custom Styles -->
+	<style>
+		body {
+			background: linear-gradient(135deg, #f764ae, #ffccff) no-repeat center center fixed;
+			background-size: cover;
+			font-family: 'Open Sans', sans-serif;
+			margin: 0;
+			overflow: hidden;
+		}
+
+		.animated-heart {
+			top: -10px;
+			position: absolute;
+			width: 50px;
+			height: 50px;
+			background-image: linear-gradient(rgba(255, 0, 247, 0.5), rgba(219, 112, 164, 0.5)),
+				url('./images/heart.png');
+			/* background: url('images/heart.png') no-repeat center; */
+			background-size: contain;
+			background-repeat: no-repeat;
+			animation: float 6s ease-in-out infinite, fadeInHeart 1.5s ease-in-out forwards;
+			opacity: 0;
+			background-color: transparent;
+		}
+
+
+		@keyframes float {
+			0% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+
+			50% {
+				transform: translateY(-30px);
+				opacity: 0.8;
+			}
+
+			100% {
+				transform: translateY(0);
+				opacity: 1;
+			}
+		}
+
+		@keyframes fadeInHeart {
+			0% {
+				opacity: 0;
+			}
+
+			100% {
+				opacity: 1;
+			}
+		}
+
+		.heart1 {
+			left: 15%;
+			animation-delay: 0s;
+		}
+
+		.heart2 {
+			left: 30%;
+			animation-delay: 1.5s;
+		}
+
+		.heart3 {
+			left: 45%;
+			animation-delay: 3s;
+		}
+
+		.heart4 {
+			left: 60%;
+			animation-delay: 4.5s;
+		}
+
+		.heart5 {
+			left: 75%;
+			animation-delay: 6s;
+		}
+
+		.simply-countdown-one,
+		.fh5co-intro {
+			animation: fadeInUp 2s ease-in-out;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="fh5co-loader"></div>
+
+	<aside id="fh5co-aside" role="sidebar" class="text-center" style="background-image: url(images/my_love.jpg)">
+		<h1 id="fh5co-logo">Linh ♥ Thém</h1>
+	</aside>
+
+	<div id="fh5co-main-content">
+		<!-- Heart animations -->
+		<div class="animated-heart heart1"></div>
+		<div class="animated-heart heart2"></div>
+		<div class="animated-heart heart3"></div>
+		<div class="animated-heart heart4"></div>
+		<div class="animated-heart heart5"></div>
+
+		<div class="dt js-dt">
+			<div class="dtc js-dtc">
+				<div class="simply-countdown-one animate-box" data-animate-effect="fadeInUp"></div>
+
+				<div class="row">
+					<div class="col-md-12">
+						<div class="row">
+							<div class="col-lg-12">
+								<div class="fh5co-intro animate-box">
+									<h2>--------------</h2>
+									<div class="date-container">
+										<p class="date-text">
+											Ngày yêu: <span class="date-time">31/4/2023</span>
+										</p>
+										<p class="date-text">
+											Hôm nay: <span id="nuitime" class="date-time"></span>
+										</p>
+									</div>
+								</div>
+							</div>
+
+							<div class="col-lg-12 animate-box">
+								<p>
+									&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;<br />&nbsp;<br /><br />
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- jQuery -->
+	<script src="js/jquery.min.js"></script>
+	<!-- jQuery Easing -->
+	<script src="js/jquery.easing.1.3.js"></script>
+	<!-- Bootstrap -->
+	<script src="js/bootstrap.min.js"></script>
+	<!-- Waypoints -->
+	<script src="js/jquery.waypoints.min.js"></script>
+	<!-- Count Down -->
+	<script src="js/simplyCountdown.js"></script>
+	<!-- Main -->
+	<script src="js/main.js"></script>
+	<script>
+		function getFormattedDate() {
+			var date = new Date();
+
+			var month = date.getMonth() + 1;
+			var day = date.getDate();
+			var hour = date.getHours();
+			var min = date.getMinutes();
+			var sec = date.getSeconds();
+
+			month = (month < 10 ? "0" : "") + month;
+			day = (day < 10 ? "0" : "") + day;
+			hour = (hour < 10 ? "0" : "") + hour;
+			min = (min < 10 ? "0" : "") + min;
+			sec = (sec < 10 ? "0" : "") + sec;
+
+			var str = day + "/" + month + "/" + date.getFullYear() + ", " + hour + ":" + min;
+
+			return str;
+		}
+
+		function nuitick() {
+			$("#nuitime").text(getFormattedDate());
+		}
+
+		setInterval(nuitick, 1000);
+		nuitick();
+	</script>
+</body>
+
+</html>
