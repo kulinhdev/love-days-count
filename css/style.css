@@ -1,3 +1,13 @@
+:root {
+	--main-color: #0bbbe6;
+	--secondary-color: #be2055;
+	--text-color: #828282;
+	--heading-color: #000;
+	--background-color: #fff;
+	--font-family: "Open Sans", Arial, sans-serif;
+	--transition-duration: 0.5s;
+}
+
 @font-face {
 	font-family: "icomoon";
 	src: url("../fonts/icomoon/icomoon.eot?srf3rx");
@@ -8,19 +18,21 @@
 		url("../fonts/icomoon/icomoon.svg?srf3rx#icomoon") format("svg");
 	font-weight: normal;
 	font-style: normal;
+	font-display: swap;
 }
-/* =======================================================
-*
-* 	Template Style 
-*
-* ======================================================= */
+
 body {
-	font-family: "Open Sans", Arial, sans-serif;
+	font-family: var(--font-family);
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.7;
-	color: #828282;
-	background: #fff;
+	color: var(--text-color);
+	background: linear-gradient(135deg, #f764ae, #ffccff) no-repeat center
+		center fixed;
+	background-size: cover;
+	margin: 0;
+	overflow: hidden;
+	height: 100%;
 }
 
 #page {
@@ -28,17 +40,15 @@ body {
 	overflow-x: hidden;
 	width: 100%;
 	height: 100%;
-	-webkit-transition: 0.5s;
-	-o-transition: 0.5s;
-	transition: 0.5s;
+	transition: var(--transition-duration);
 }
+
 .offcanvas #page {
 	overflow: hidden;
 	position: absolute;
 }
+
 .offcanvas #page:after {
-	-webkit-transition: 2s;
-	-o-transition: 2s;
 	transition: 2s;
 	position: absolute;
 	top: 0;
@@ -51,17 +61,16 @@ body {
 }
 
 a {
-	color: #0bbbe6;
-	-webkit-transition: 0.5s;
-	-o-transition: 0.5s;
-	transition: 0.5s;
+	color: var(--main-color);
+	transition: var(--transition-duration);
 }
+
 a:hover,
 a:active,
 a:focus {
-	color: #0bbbe6;
 	outline: none;
 	text-decoration: none;
+	color: var(--main-color);
 }
 
 p {
@@ -75,25 +84,15 @@ h4,
 h5,
 h6,
 figure {
-	color: #000;
-	font-family: "Open Sans", Arial, sans-serif;
+	color: var(--heading-color);
+	font-family: var(--font-family);
 	font-weight: 400;
 	margin: 0 0 20px 0;
 }
 
-::-webkit-selection {
-	color: #fff;
-	background: #0bbbe6;
-}
-
-::-moz-selection {
-	color: #fff;
-	background: #0bbbe6;
-}
-
 ::selection {
 	color: #fff;
-	background: #0bbbe6;
+	background: var(--main-color);
 }
 
 .date-container {
@@ -111,34 +110,30 @@ figure {
 .date-time {
 	margin-left: 10px;
 	font-size: 1.8em;
-	color: #be2055;
+	color: var(--secondary-color);
 }
 
 #fh5co-aside {
-	width: 50.2%;
-	top: 0;
-	left: 0;
-	bottom: 0;
-	position: fixed;
 	height: 100vh;
+	width: 50%;
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	justify-content: flex-end;
+	position: fixed;
+	left: 0;
+	top: 0;
 	z-index: 555;
 	background-color: #de65e4;
-	background-position: center center;
-	background-size: cover;
-	background-repeat: no-repeat;
-	background-position: center center;
 }
-@media screen and (max-width: 768px) {
-	#fh5co-aside {
-		width: 100%;
-		position: relative;
-		height: 300px;
-	}
-}
+
 #fh5co-aside #fh5co-logo {
 	padding-top: 20px;
 	font-family: "Great Vibes", cursive;
-	font-size: 4em;
+	font-size: 5em;
 	animation: fadeIn 2s ease-in-out;
 	margin-top: 20px;
 	font-weight: 800;
@@ -146,28 +141,27 @@ figure {
 	color: #ff66b2;
 }
 
+.parent-container {
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+
 #fh5co-main-content {
-	top: 100px;
 	position: relative;
-	margin-left: 50.1966%;
+	top: 100px;
+	margin-left: 50%;
 	z-index: 999;
-	min-height: 600px;
 	padding-left: 70px;
 	padding-right: 70px;
 }
-@media screen and (max-width: 768px) {
-	#fh5co-main-content {
-		margin-left: 0;
-		padding-left: 15px;
-		padding-right: 15px;
-		padding-top: 30px;
-		padding-bottom: 15px;
-	}
-}
 
 .dt {
-	display: table;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
+
 .dt .dtc {
 	display: table-cell;
 	vertical-align: middle;
@@ -178,29 +172,26 @@ figure {
 	float: left;
 	width: 100%;
 }
+
 .simply-countdown-one .simply-section {
 	float: left;
-	margin-right: 40px;
+	margin: 0 20px;
 	margin-bottom: 10px;
 	text-align: center;
 }
+
 .simply-countdown-one .simply-section:last-child {
 	margin-right: 0;
 }
+
 .simply-countdown-one .simply-section .simply-amount {
 	font-size: 100px;
-	color: #be2055;
+	color: var(--secondary-color);
 	display: block;
 	font-weight: 800;
 	line-height: 100px;
 }
 
-@media screen and (max-width: 768px) {
-	.simply-countdown-one .simply-section .simply-amount {
-		font-size: 30px;
-		line-height: 30px;
-	}
-}
 .simply-countdown-one .simply-section .simply-word {
 	display: block;
 	text-align: center;
@@ -211,39 +202,29 @@ figure {
 
 .fh5co-intro {
 	margin-bottom: 30px;
-	float: left;
 	width: 100%;
 	position: relative;
 }
+
 .fh5co-intro h2 {
+	display: block;
 	margin-bottom: 10px;
 	font-size: 40px;
 	font-weight: 800;
 	color: #a31a6c;
 }
-@media screen and (max-width: 768px) {
-	.fh5co-intro h2 {
-		font-size: 20px;
-	}
-}
 
 #fh5co-subscribe {
 	position: relative;
 }
+
 #fh5co-subscribe .form-group {
-	float: left;
 	width: 100%;
 	position: relative;
 }
+
 #fh5co-subscribe .form-group .form-control {
-	-webkit-border-radius: 100px;
-	-moz-border-radius: 100px;
-	-ms-border-radius: 100px;
 	border-radius: 100px;
-	-webkit-box-shadow: none !important;
-	-moz-box-shadow: none !important;
-	-ms-box-shadow: none !important;
-	-o-box-shadow: none !important;
 	box-shadow: none !important;
 	padding-right: 150px;
 	padding-left: 30px;
@@ -252,6 +233,7 @@ figure {
 	height: 72px;
 	font-size: 18px;
 }
+
 #fh5co-subscribe .form-group .btn {
 	width: 100px;
 	position: absolute;
@@ -261,16 +243,13 @@ figure {
 	height: 72px;
 	font-size: 14px;
 	color: #fff;
-	border: none !important;
-	background: #0bbbe6;
-	color: #fff;
+	background: var(--main-color);
 	text-transform: uppercase;
 	border-top-right-radius: 100px;
 	border-bottom-right-radius: 100px;
-	-webkit-transition: 0.3s;
-	-o-transition: 0.3s;
 	transition: 0.3s;
 }
+
 #fh5co-subscribe .form-group .btn:hover,
 #fh5co-subscribe .form-group .btn:active,
 #fh5co-subscribe .form-group .btn:focus {
@@ -278,6 +257,7 @@ figure {
 	box-shadow: none !important;
 	background: #2fcef5;
 }
+
 #fh5co-subscribe .form-group .tip {
 	margin-top: 10px;
 	margin-left: 30px;
@@ -287,69 +267,127 @@ figure {
 
 .fh5co-loader {
 	position: fixed;
-	left: 0px;
-	top: 0px;
+	left: 0;
+	top: 0;
 	width: 100%;
 	height: 100%;
 	z-index: 9999;
 	background: url(../images/loader.gif) center no-repeat #fff;
 }
 
-#fh5co-footer {
-	position: absolute;
-	bottom: 20px;
-	left: 70px;
-	right: 70px;
-	padding-top: 50px;
-}
-@media screen and (max-width: 768px) {
-	#fh5co-footer {
-		left: 15px;
-		right: 15px;
-		position: relative;
-	}
-}
-#fh5co-footer .fh5co-copyright {
-	text-align: right;
-}
-@media screen and (max-width: 992px) {
-	#fh5co-footer .fh5co-copyright {
-		text-align: left;
-	}
-}
-#fh5co-footer .fh5co-copyright p {
-	font-size: 13px;
-	color: #bfbfbf;
-}
-#fh5co-footer .fh5co-copyright p:last-child {
-	margin-bottom: 0;
-}
-
 #fh5co-social {
 	padding: 0;
 	margin: 0;
 }
+
 #fh5co-social li {
 	list-style: none;
 	padding: 0;
 	margin: 0 20px 10px 0;
-	display: -moz-inline-stack;
 	display: inline-block;
-	zoom: 1;
-	*display: inline;
 }
+
 #fh5co-social li:last-child {
 	margin-right: 0;
 }
+
 #fh5co-social li a {
 	font-size: 20px;
 	color: #bfbfbf;
 }
+
 #fh5co-social li a:hover,
 #fh5co-social li a:active,
 #fh5co-social li a:focus {
 	outline: none;
-	color: #0bbbe6;
+	color: var(--main-color);
 }
 
-/*# sourceMappingURL=style.css.map */
+/* General Mobile Adjustments */
+@media screen and (max-width: 768px) {
+	#fh5co-main-content {
+		margin-left: 0;
+		padding: 0;
+		width: 100%;
+		box-sizing: border-box;
+	}
+
+	#fh5co-aside {
+		width: 100%;
+		height: 100vh;
+		background-size: cover;
+		background-position: center;
+		background-repeat: no-repeat;
+		display: flex;
+		flex-direction: column;
+		justify-content: flex-end;
+		align-items: center;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 555;
+	}
+
+	#fh5co-aside #fh5co-logo {
+		margin-top: 20px;
+		font-size: 3em;
+		text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	}
+
+	.simply-countdown-one .simply-section .simply-word {
+		color: #ded7d7;
+	}
+
+	.date-container {
+		padding: 15px;
+	}
+
+	.date-text {
+		font-size: 1em;
+		color: #ded7d7;
+	}
+
+	.date-time {
+		font-size: 1.2em;
+	}
+
+	.simply-countdown-one {
+		margin-bottom: 20px;
+		float: left;
+		display: block;
+		justify-content: center;
+		width: 100%;
+	}
+
+	.simply-countdown-one .simply-section {
+		float: none;
+		margin-bottom: 10px;
+		text-align: center;
+	}
+
+	.simply-countdown-one .simply-section .simply-amount {
+		font-size: 30px;
+		line-height: 30px;
+	}
+
+	.fh5co-intro h2 {
+		font-size: 24px;
+		margin-bottom: 20px;
+		text-align: center;
+	}
+
+	#fh5co-subscribe .form-group .form-control {
+		height: 55px;
+		font-size: 16px;
+		padding-right: 70px;
+	}
+
+	#fh5co-subscribe .form-group .btn {
+		height: 55px;
+		font-size: 12px;
+	}
+
+	#fh5co-social li a {
+		font-size: 18px;
+	}
+}
